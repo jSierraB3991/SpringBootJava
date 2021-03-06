@@ -1,0 +1,24 @@
+config =>	JmsConfiguration.java
+	@EnabledJms habilita los endpoints anotados @JsmListener que se crean bajo la cubierta
+		mediante un JmsListenerContainerFactory
+
+	JmsListenerContainerFactory es el responsable de crear el contenedor de escucha, 
+		responsable para un endpoint en particular. Implementaciones tipicas, como la de
+		DefaultJsmListenerContainerFactory, proporciona la opciones de configuracion
+		necesaria que son compatible con MessageListenerContainer
+
+	MappingJackson2MessageConverter se usa para ejecutar el payload del mensaje serializado 
+		desde un tipo Object y viceversa
+
+	Hemos configurado MessageType.TEXT. Este tipo de mensaje se puede usar para transportar
+		mensajes basados en texto. Cuando un cliente recibe un TextMessage, está en modo
+		read-only.Si un client intenta escribir en el mensaje en este momento, 
+		se genera una excepción: MessageNotWriteableException
+
+
+Listener=>	MessageReciver
+	La clase MessageReciver es una clase bastante simple con un solo metodo con la anotacion
+			@JmsListener, @JmsListener te permite exponder un metodo de administracion
+			de bean con un endpoint JMS Listener
+	Entonces cuando cualquier message esta habilitado en la cola de configuración(En este
+			ejemplo la cola se llama "message_queue"), sera invocado el metodo anotado
