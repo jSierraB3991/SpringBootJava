@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">proveedores_XamAndroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="providerlist">Providers List</string>
+</resources>

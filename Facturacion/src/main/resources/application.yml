@@ -1,0 +1,27 @@
+server:
+  port: 20001
+spring:
+  data:
+    rest:
+      default-page-size: 5
+      limit-param-name: limit
+      max-page-size: 10
+      page-param-name: page
+      sort-param-name: sort
+  datasource:
+    password: root
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/factura_test
+    username: postgres
+  flyway:
+    baseline-on-migrate: true
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  messages:
+    basename: messages,config.i18n.messages
