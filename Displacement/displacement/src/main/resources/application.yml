@@ -1,0 +1,12 @@
+server:
+  port: 20001
+spring:
+  datasource:
+    username: root
+    password: Root-aria93
+    url: jdbc:mysql://localhost:3306/displacement
+  jpa:
+    generate-dll: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
