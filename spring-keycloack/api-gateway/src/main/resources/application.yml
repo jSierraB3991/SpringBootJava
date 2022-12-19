@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes[0]:
+        id: producto-microservice
+        uri: http://localhost:20001/
+        predicates[0]: Path=/product/**
+      discovery:
+        locator:
+          enabled: true
+  application:
+    name: api-gateway
+eureka:
+  instance:
+    instance-id: 274563345
