@@ -1,9 +1,25 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        registration:
+          spring-cloud-gateway-client:
+            client-secret: AjzCeyy8hzAbpDqOszRaZLz4v81vGdDE
+            client-id: spring-cloud-gateway-client
+            provider: keycloak
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9090/realms/github-jsierra-keycloack
   cloud:
     loadbalancer:
       ribbon:
         enabled: false
     gateway:
+      default-filters: TokenRelay
       routes[0]:
         id: producto-microservice
         uri: http://localhost:20001/
@@ -16,3 +32,6 @@ spring:
 eureka:
   instance:
     instance-id: 274563345
+
+
+
